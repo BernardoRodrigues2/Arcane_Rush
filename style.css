@@ -1,0 +1,28 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: #8d8d8d;
+    color: rgb(11, 23, 199);
+}
+
+p{
+    margin-top: 40px;
+    text-align: center;
+    color: rgb(11, 23, 199);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 30px;
+
+}
+
+canvas{
+    margin: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-image: url(./img/Img_Fundo.png);
+}
