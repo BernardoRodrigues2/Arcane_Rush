@@ -30,8 +30,57 @@ class Mage extends Obj{
 
         if(this.y < 62){
             this.y = 62
-        }else if(this.y > 692){
-            this.y = 692
+        }else if(this.y > 604){
+            this.y = 604
+        }
+    }
+
+    colid(objeto){
+        if((this.x < objeto.x + objeto.w)&&
+          (this.x + this.w > objeto.x)&&
+          (this.y < objeto.y + objeto.h)&&
+          (this.y + this.h > objeto.y)){
+            return true
+        }else{
+            return false
+        }
+    }
+
+    point(objeto){
+        if(objeto.x <= -100){
+            return true
+        }else{
+            return false
+        }
+    }
+
+    anim(nome){
+        this.tempo +=1
+        if(this.tempo > 12){
+            this.tempo = 0
+            this.frame++
+        }
+        if(this.frame > 6){
+            this.frame = 1
+        }
+        this.img.src = "./img/"+nome+this.frame+".png"
+    }
+}
+
+class Mage2 extends Obj{
+    dir = 0
+    vida = 5
+    pontos = 0
+    frame = 1
+    tempo = 0
+
+    mov_mage(){
+        this.y += this.dir
+
+        if(this.y < 62){
+            this.y = 62
+        }else if(this.y > 604){
+            this.y = 604
         }
     }
 

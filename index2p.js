@@ -9,7 +9,7 @@ let grimorio2 = new Grimorios(1700, 400, 64, 64, './img/grimorio2.png')
 let grimorio3 = new Grimorios(2000, 300, 64, 64, './img/grimorio3.png')
 
 let mago = new Mage(100, 325, 96, 96, './img/sprite1.png')
-let mago2 = new Mage(100, 325, 96, 96, './img/sprite1.png')
+let mago2 = new Mage2(100, 100, 96, 96, './img/sprite1.png')
 
 let t1 = new Text()
 let t2 = new Text()
@@ -17,6 +17,7 @@ let fase_txt = new Text()
 
 let jogar = true
 let fase = 1
+let vitoria = false
 
 //Movimentação Player 1
 document.addEventListener('keydown', (e) => {
@@ -61,6 +62,20 @@ function game_over() {
     if (mago2.vida <= 0) {
         jogar = false
     }
+    document.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            mago.vida = 5
+            mago2.vida = 5
+            mago.pontos = 0
+            mago2.pontos = 0
+            jogar = true
+            vitoria = false
+            fase = 1
+            fantasma1.x = 1300
+            fantasma2.x = 1500
+            fantasma3.x = 1700
+        }
+    })
 }
 
 function ver_fase() {
@@ -125,7 +140,7 @@ function colisao() {
 }
 
 function pontuacao() {
-    //Pontuação e Colisão com grimorios do Player 1
+    //Player 1
     if (mago.colid(grimorio1)) {
         mago.pontos += 10
         grimorio1.recomeca()
@@ -140,7 +155,8 @@ function pontuacao() {
         mago.pontos += 10
         grimorio3.recomeca()
     }
-    //Pontuação e Colisão com grimorios do Player 2
+
+    //Player 2
     if (mago2.colid(grimorio1)) {
         mago2.pontos += 10
         grimorio1.recomeca()
@@ -155,12 +171,20 @@ function pontuacao() {
         mago2.pontos += 10
         grimorio3.recomeca()
     }
+
+    // VITORIA
+    if (mago.pontos >= 100 || mago2.pontos >= 100) {
+        jogar = false
+        vitoria = true
+    }
 }
 
 function desenha() {
     if (jogar) {
+
         des.fillStyle = 'rgba(0,0,0,0.4)'
         des.fillRect(0, 0, 1200, 60)
+
         des.fillStyle = 'rgba(0,0,0,0.4)'
         des.fillRect(0, 640, 1200, 60)
 
@@ -175,22 +199,42 @@ function desenha() {
         mago.des_mage()
         mago2.des_mage()
 
-
-        // PLAYER 1 (EM CIMA)
         t2.des_text('P1 Vidas: ' + mago.vida, 20, 40, 'red', '20px "Press Start 2P"')
         fase_txt.des_text('Fase: ' + fase, 520, 40, 'white', '20px "Press Start 2P"')
         t1.des_text('P1 Pontos: ' + mago.pontos, 820, 40, 'yellow', '20px "Press Start 2P"')
 
-        // PLAYER 2 (EMBAIXO)
         t2.des_text('P2 Vidas: ' + mago2.vida, 20, 680, 'red', '20px "Press Start 2P"')
         t1.des_text('P2 Pontos: ' + mago2.pontos, 820, 680, 'yellow', '20px "Press Start 2P"')
 
     } else {
-        t1.des_text('GAME OVER', 350, 300, 'red', '40px "Press Start 2P"')
-        t2.des_text('Pontuação Final: ' + mago.pontos, 400, 360, 'white', '20px "Press Start 2P"')
-        t2.des_text('Pontuação Final: ' + mago2.pontos, 400, 420, 'white', '20px "Press Start 2P"')
-    }
 
+        if(vitoria){
+
+            t1.des_text('VITORIA!', 330, 300, 'yellow', '40px "Press Start 2P"')
+
+            if(mago.pontos >= 100){
+                t2.des_text('PLAYER 1 VENCEU', 260, 320, 'white', '20px "Press Start 2P"')
+                t2.des_text('Pontuação Final: ' + mago.pontos, 320, 380, 'white', '20px "Press Start 2P"')
+                t2.des_text('Pontuação Final: ' + mago2.pontos, 320, 420, 'white', '20px "Press Start 2P"')
+            }
+
+            if(mago2.pontos >= 100){
+                t2.des_text('PLAYER 2 VENCEU', 260, 320, 'white', '20px "Press Start 2P"')
+                t2.des_text('Pontuação Final: ' + mago.pontos, 320, 380, 'white', '20px "Press Start 2P"')
+                t2.des_text('Pontuação Final: ' + mago2.pontos, 320, 420, 'white', '20px "Press Start 2P"')
+            }
+
+            t2.des_text('Pressione ENTER para jogar novamente',180,480,'white','18px "Press Start 2P"')
+
+        }else{
+
+            t1.des_text('GAME OVER', 350, 300, 'red', '40px "Press Start 2P"')
+            t2.des_text('Pontuação Final: ' + mago.pontos, 400, 360, 'white', '20px "Press Start 2P"')
+            t2.des_text('Pontuação Final: ' + mago2.pontos, 400, 420, 'white', '20px "Press Start 2P"')
+            t2.des_text('Pressione ENTER para recomeçar o jogo!',370, 470, 'white','20px "Press Start 2P"')
+
+        }
+    }
 }
 
 function atualiza() {
