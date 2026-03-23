@@ -1,0 +1,65 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+
+    background-image: url(../img/fundoSite.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.voltar {
+    position: fixed;
+    top: 800px;
+    left: 1680px;
+
+    width: 120px;
+    height: 60px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    text-decoration: none;
+
+    border: 2px solid #6f85ff;
+    border-radius: 8px;
+
+    font-size: 20px;
+
+    z-index: 1000;
+}
+
+.voltar:hover {
+    background: #2d3fff;
+}
+
+.titulo {
+    position: absolute;
+    top: 35px; /* ajusta a altura */
+    left: 50%;
+    transform: translateX(-50%);
+    
+    width: 500px; /* ajuste conforme o tamanho da imagem */
+    
+    z-index: 1001; /* garante que fique acima do canvas */
+    pointer-events: none; /* opcional: não interfere em cliques */
+}
+
+canvas {
+    position: absolute;
+    border-radius: 20px;
+    top: 50%;
+    left: 51%;
+    transform: translate(-50%, -50%);
+    background-image: url(../img/Img_Fundo.png);
+}
