@@ -15,18 +15,18 @@ let t2 = new Text()
 let fase_txt = new Text()
 
 // SONS
-let musica = new Audio('./audio/backgroundMusic.mp3')
-let andar = new Audio('./audio/walking.wav')
-let dano = new Audio('./audio/ghost.wav')
-let coleta = new Audio('./audio/coletar.wav')
-let gameover_som = new Audio('./audio/gameOver.wav')
-let win_som = new Audio('./audio/win.wav')
+let musica = new Audio('./audio/bgMusic.mp3')
+let andar = new Audio('./audio/walking.mp3')
+let dano = new Audio('./audio/ghost.mp3')
+let coleta = new Audio('./audio/coletar.mp3')
+let gameover_som = new Audio('./audio/gameOver.mp3')
+let win_som = new Audio('./audio/win.mp3')
 
 musica.loop = true
 musica.volume = 0.4
 
-andar.volume = 0.3
 andar.loop = true
+andar.volume = 0.3
 
 dano.volume = 0.5
 coleta.volume = 0.5
@@ -36,7 +36,6 @@ win_som.volume = 0.6
 let jogar = true
 let fase = 1
 let vitoria = false
-
 
 //Movimentação Player 1
 document.addEventListener('keydown', (e) => {
@@ -67,8 +66,6 @@ document.addEventListener('keyup', (e) => {
     }
 })
 
-
-
 function game_over() {
     if (mago.vida <= 0) {
         jogar = false
@@ -95,7 +92,6 @@ function game_over() {
         }
     })
 }
-
 
 function ver_fase() { 
     if (mago.pontos > 20 && fase === 1) {
@@ -124,7 +120,6 @@ function ver_fase() {
     }
 }
 
-
 function colisao() {
     if (mago.colid(fantasma1)) {
         dano.play()
@@ -145,7 +140,6 @@ function colisao() {
     }
 }
 
-
 function pontuacao() {
     if (mago.colid(grimorio1)) {
         coleta.play()
@@ -165,7 +159,6 @@ function pontuacao() {
         grimorio3.recomeca()
     }
 
-    // VITORIA
     if (mago.pontos >= 300) {
         jogar = false
         vitoria = true
@@ -176,6 +169,7 @@ function pontuacao() {
 
 function desenha() {
     if (jogar) {
+
         des.fillStyle = 'rgba(0,0,0,0.4)'
         des.fillRect(0,0,1200,60)
 
@@ -192,18 +186,14 @@ function desenha() {
         t2.des_text('Vidas: ' + mago.vida, 20, 40, 'red', '20px "Press Start 2P"')
         fase_txt.des_text('Fase: ' + fase, 520, 40, 'white', '20px "Press Start 2P"')
         t1.des_text('Pontos: ' + mago.pontos, 900, 40, 'yellow', '20px "Press Start 2P"')
-        
+
     } else {
 
         if(vitoria){
 
             t1.des_text('VITORIA!', 330, 300, 'yellow', '40px "Press Start 2P"')
-
-            if(mago.pontos >= 300){
-                t2.des_text('PLAYER 1 VENCEU', 320, 350, 'white', '20px "Press Start 2P"')
-                t2.des_text('Pontuação Final: ' + mago.pontos, 320, 380, 'white', '20px "Press Start 2P"')
-            }
-
+            t2.des_text('PLAYER 1 VENCEU', 320, 350, 'white', '20px "Press Start 2P"')
+            t2.des_text('Pontuação Final: ' + mago.pontos, 320, 380, 'white', '20px "Press Start 2P"')
             t2.des_text('Pressione ENTER para jogar novamente',180,480,'white','18px "Press Start 2P"')
 
         }else{
@@ -214,8 +204,7 @@ function desenha() {
 
         }
     }
-
-    }
+}
 
 function atualiza() {
     if (jogar) {

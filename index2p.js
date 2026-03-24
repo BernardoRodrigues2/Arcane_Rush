@@ -20,12 +20,12 @@ let fase = 1
 let vitoria = false
 
 // SONS
-let musica = new Audio('./audio/backgroundMusic.mp3')
-let andar = new Audio('./audio/walking.wav')
-let dano = new Audio('./audio/ghost.wav')
-let coleta = new Audio('./audio/coletar.wav')
-let gameover_som = new Audio('./audio/gameOver.wav')
-let win_som = new Audio('./audio/win.wav')
+let musica = new Audio('./audio/bgMusic.mp3')
+let andar = new Audio('./audio/walking.mp3')
+let dano = new Audio('./audio/ghost.mp3')
+let coleta = new Audio('./audio/coletar.mp3')
+let gameover_som = new Audio('./audio/gameOver.mp3')
+let win_som = new Audio('./audio/win.mp3')
 
 musica.loop = true
 musica.volume = 0.4
@@ -41,7 +41,8 @@ document.addEventListener('keydown', (e) => {
     if (e.key === 'w') {
         mago.dir -= 10
         andar.play()
-    } else if (e.key === 's') {
+    }
+    else if (e.key === 's') {
         mago.dir += 10
         andar.play()
     }
@@ -52,7 +53,8 @@ document.addEventListener('keyup', (e) => {
         mago.dir = 0
         andar.pause()
         andar.currentTime = 0
-    } else if (e.key === 's') {
+    }
+    else if (e.key === 's') {
         mago.dir = 0
         andar.pause()
         andar.currentTime = 0
@@ -65,7 +67,8 @@ document.addEventListener('keydown', (e) => {
     if (e.key === 'ArrowUp') {
         mago2.dir -= 10
         andar.play()
-    } else if (e.key === 'ArrowDown') {
+    }
+    else if (e.key === 'ArrowDown') {
         mago2.dir += 10
         andar.play()
     }
@@ -76,7 +79,8 @@ document.addEventListener('keyup', (e) => {
         mago2.dir = 0
         andar.pause()
         andar.currentTime = 0
-    } else if (e.key === 'ArrowDown') {
+    }
+    else if (e.key === 'ArrowDown') {
         mago2.dir = 0
         andar.pause()
         andar.currentTime = 0
@@ -85,16 +89,7 @@ document.addEventListener('keyup', (e) => {
 
 function game_over() {
 
-    //Game Over do Player 1
-    if (mago.vida <= 0) {
-        jogar = false
-        vitoria = false
-        musica.pause()
-        gameover_som.play()
-    }
-
-    //Game Over do Player 2
-    if (mago2.vida <= 0) {
+    if (mago.vida <= 0 || mago2.vida <= 0) {
         jogar = false
         vitoria = false
         musica.pause()
@@ -124,24 +119,13 @@ function game_over() {
 
 function ver_fase() {
 
-    if (mago.pontos > 20 && fase === 1) {
+    if ((mago.pontos > 20 || mago2.pontos > 20) && fase === 1) {
         fase = 2
         fantasma1.vel = 4
         fantasma2.vel = 4
         fantasma3.vel = 4
-    } else if (mago.pontos > 40 && fase === 2) {
-        fase = 3
-        fantasma1.vel = 6
-        fantasma2.vel = 6
-        fantasma3.vel = 6
     }
-
-    if (mago2.pontos > 20 && fase === 1) {
-        fase = 2
-        fantasma1.vel = 4
-        fantasma2.vel = 4
-        fantasma3.vel = 4
-    } else if (mago2.pontos > 40 && fase === 2) {
+    else if ((mago.pontos > 40 || mago2.pontos > 40) && fase === 2) {
         fase = 3
         fantasma1.vel = 6
         fantasma2.vel = 6
@@ -150,7 +134,7 @@ function ver_fase() {
 }
 
 function colisao() {
-    //Player 1
+
     if (mago.colid(fantasma1)) {
         dano.play()
         fantasma1.recomeca()
@@ -169,7 +153,6 @@ function colisao() {
         mago.vida--
     }
 
-    //Player 2
     if (mago2.colid(fantasma1)) {
         dano.play()
         fantasma1.recomeca()
@@ -191,7 +174,6 @@ function colisao() {
 
 function pontuacao() {
 
-    //Player 1
     if (mago.colid(grimorio1)) {
         coleta.play()
         mago.pontos += 10
@@ -210,7 +192,6 @@ function pontuacao() {
         grimorio3.recomeca()
     }
 
-    //Player 2
     if (mago2.colid(grimorio1)) {
         coleta.play()
         mago2.pontos += 10
@@ -229,7 +210,6 @@ function pontuacao() {
         grimorio3.recomeca()
     }
 
-    // VITORIA
     if (mago.pontos >= 100 || mago2.pontos >= 100) {
         jogar = false
         vitoria = true
@@ -237,6 +217,7 @@ function pontuacao() {
         win_som.play()
     }
 }
+
 function desenha() {
     if (jogar) {
 
@@ -294,6 +275,8 @@ function desenha() {
         }
     }
 }
+
+
 
 function atualiza() {
     if (jogar) {
