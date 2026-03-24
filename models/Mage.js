@@ -30,8 +30,8 @@ class Mage extends Obj{
 
         if(this.y < 62){
             this.y = 62
-        }else if(this.y > 692){
-            this.y = 692
+        }else if(this.y > 630){
+            this.y = 630
         }
     }
 

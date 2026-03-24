@@ -109,7 +109,7 @@ class Mage2 extends Obj{
             this.tempo = 0
             this.frame++
         }
-        if(this.frame > 6){
+        if(this.frame > 5){
             this.frame = 1
         }
         this.img.src = "./img/"+nome+this.frame+".png"
