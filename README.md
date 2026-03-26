@@ -1,85 +1,103 @@
-🎮 Arcane Rush
+# 🎮 Arcane Rush
 
-Título do Projeto: Arcane Rush
+## 1. Identificação do Projeto
 
-Desenvolvedor: Bernardo Rodrigues
+**Título do Projeto:** Arcane Rush  
+**Desenvolvedor:** Bernardo Rodrigues  
 
-Logotipo / Banner:
-<img width="1023" height="244" alt="tituloSite" src="https://github.com/user-attachments/assets/bbf5b1d8-1d35-40fc-a4dc-cd432d2c7dd0" />
+**Logotipo / Banner:**  
 
-🧙 Visão Geral do Sistema
+<img width="1023" height="244" alt="tituloSite" src="https://github.com/user-attachments/assets/4a0741bc-5122-4fd8-ba3d-475f4ea9ec50" />
 
-📖 Descrição
+---
 
-Arcane Rush é um game arcade de sobrevivência desenvolvido utilizando HTML5 Canvas, JavaScript e CSS3. O jogador controla um mago que deve sobreviver desviando de fantasmas enquanto coleta grimórios mágicos para aumentar sua pontuação.
+# 2. Visão Geral do Sistema
 
-🎯 Objetivo
+## 📌 Descrição
+Arcane Rush é um jogo arcade de sobrevivência desenvolvido com HTML5 Canvas, JavaScript e CSS3. O jogador controla um mago que deve sobreviver desviando de fantasmas e coletando grimórios para aumentar sua pontuação.
 
-O objetivo do jogo é sobreviver o máximo possível, coletando grimórios e evitando colisões com os fantasmas. A cada fase a dificuldade aumenta, tornando os inimigos mais rápidos.
+## 🎯 Objetivo
+O objetivo do jogo é sobreviver o máximo possível coletando grimórios e evitando os fantasmas, enquanto a dificuldade aumenta a cada fase.
 
-🧩 Tema
+## 🧙 Tema
+O jogo possui temática de magia e fantasia. O jogador assume o papel de um mago que precisa sobreviver a criaturas sobrenaturais enquanto coleta grimórios mágicos.
 
-O jogo possui temática medieval mágica, onde o jogador assume o papel de um mago que precisa sobreviver em um ambiente com criaturas sobrenaturais.
+## 🎮 Instruções de Jogabilidade
 
-🎮 Instruções de Jogabilidade
-Controles
-W → mover para cima
-S → mover para baixo
-↑ → mover para cima
-↓ → mover para baixo
-ENTER → reiniciar jogo
-Elementos do Jogo
-📕 Grimórios → aumentam a pontuação
-👻 Fantasmas → retiram vidas
-❤️ Vidas → jogador inicia com 5 vidas
-⚙️ Especificações Técnicas
-Sistema de fases progressivas
-Aumento de velocidade dos inimigos por fase
-Sistema de vidas (5 vidas iniciais)
-Sistema de pontuação por coleta
-Tela de vitória
-Tela de Game Over
-Sistema de sons
-Mudança de background por fase
-Progressão de Fases
-Fase 1 → início
-Fase 2 → 20 pontos
-Fase 3 → 40 pontos
-Fase 4 → 100 pontos
-Fase 5 → 150 pontos
-Vitória
-300 pontos
-👨‍💻 Créditos
+### Controles
+- W ou ↑ → mover para cima  
+- S ou ↓ → mover para baixo  
+- ENTER → reiniciar jogo  
 
-Desenvolvedor:
-Bernardo Rodrigues
+### Elementos do jogo
+- Grimórios → aumentam pontuação  
+- Fantasmas → retiram vidas  
+- Jogador inicia com 5 vidas  
 
-Product Owner:
-Professor Carlos Roberto da Silva Filho
+## ⚙️ Especificações Técnicas
 
-🚀 Link de Produção
+- Sistema de fases progressivas  
+- Aumento da velocidade dos inimigos por fase  
+- Sistema de vidas  
+- Sistema de pontuação  
+- Sons do jogo  
+- Mudança de fundo por fase  
+- Tela de vitória  
+- Tela de game over  
 
-Jogo online:
+### Progressão de Fases
+
+- Fase 1 → início  
+- Fase 2 → 20 pontos  
+- Fase 3 → 40 pontos  
+- Fase 4 → 100 pontos  
+- Fase 5 → 150 pontos  
+
+Vitória ao atingir **300 pontos**
+
+---
+
+## 👨‍💻 Créditos
+
+**Desenvolvedor:**  
+Bernardo Rodrigues  
+
+**Product Owner:**  
+Professor Carlos Roberto da Silva Filho  
+
+---
+
+## 🔗 Link de Produção
+
 arcane-rush-nu.vercel.app
 
-💻 Instruções de Instalação e Execução
-1. Clonar repositório
+---
 
+# 3. Instruções de Instalação e Execução
+
+### 1. Clonar repositório
+
+```
 git clone https://github.com/BernardoRodrigues2/Arcane_Rush.git
+```
 
-2. Entrar na pasta
+### 2. Entrar na pasta
 
+```
 cd arcane-rush
+```
 
-3. Executar
+### 3. Executar
 
-Abrir o arquivo:
+Abrir o arquivo **index.html** no navegador  
+ou usar **Live Server** no VS Code
 
-index.html
+---
 
-ou usar Live Server no VS Code.
+# 🛠 Tecnologias Utilizadas
 
-🛠 Tecnologias Utilizadas
-HTML5 Canvas
-JavaScript
-CSS3
+- HTML5 Canvas  
+- JavaScript  
+- CSS3  
+
+---
