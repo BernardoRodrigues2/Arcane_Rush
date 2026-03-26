@@ -2,7 +2,7 @@ let des = document.getElementById('des').getContext('2d')
 
 // FUNDO
 let fundo = new Image()
-fundo.src = './img/img_Fundo.png'
+fundo.src = './img/Img_Fundo.png'
 
 let fantasma1 = new Fantasmas(1300, 325, 64, 64, './img/fantasma.png')
 let fantasma2 = new Fantasmas(1500, 125, 64, 64, './img/fantasma.png')
@@ -102,7 +102,7 @@ function game_over() {
             vitoria = false
             fase = 1
 
-            fundo.src = './img/img_Fundo.png'
+            fundo.src = './img/Img_Fundo.png'
 
             musica.currentTime = 0
             musica.play()
