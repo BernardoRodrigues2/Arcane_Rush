@@ -1,6 +1,7 @@
 🎮 Arcane Rush
 
 Título do Projeto: Arcane Rush
+
 Desenvolvedor: Bernardo Rodrigues
 
 Logotipo / Banner:
