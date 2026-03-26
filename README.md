@@ -1,5 +1,4 @@
 🎮 Arcane Rush
-📌 Identificação do Projeto
 
 Título do Projeto: Arcane Rush
 Desenvolvedor: Bernardo Rodrigues
