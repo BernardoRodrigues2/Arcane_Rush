@@ -1,5 +1,9 @@
 let des = document.getElementById('des').getContext('2d')
 
+// FUNDO
+let fundo = new Image()
+fundo.src = './img/img_Fundo.png'
+
 let fantasma1 = new Fantasmas(1300, 325, 64, 64, './img/fantasma.png')
 let fantasma2 = new Fantasmas(1500, 125, 64, 64, './img/fantasma.png')
 let fantasma3 = new Fantasmas(1700, 400, 64, 64, './img/fantasma.png')
@@ -33,7 +37,7 @@ musica.volume = 0.4
 andar.loop = true
 andar.volume = 0.3
 
-//Movimentação Player 1
+// Player 1
 document.addEventListener('keydown', (e) => {
 
     musica.play()
@@ -49,19 +53,14 @@ document.addEventListener('keydown', (e) => {
 })
 
 document.addEventListener('keyup', (e) => {
-    if (e.key === 'w') {
-        mago.dir = 0
-        andar.pause()
-        andar.currentTime = 0
-    }
-    else if (e.key === 's') {
+    if (e.key === 'w' || e.key === 's') {
         mago.dir = 0
         andar.pause()
         andar.currentTime = 0
     }
 })
 
-//Movimentação Player 2
+// Player 2
 document.addEventListener('keydown', (e) => {
 
     if (e.key === 'ArrowUp') {
@@ -75,12 +74,7 @@ document.addEventListener('keydown', (e) => {
 })
 
 document.addEventListener('keyup', (e) => {
-    if (e.key === 'ArrowUp') {
-        mago2.dir = 0
-        andar.pause()
-        andar.currentTime = 0
-    }
-    else if (e.key === 'ArrowDown') {
+    if (e.key === 'ArrowUp' || e.key === 'ArrowDown') {
         mago2.dir = 0
         andar.pause()
         andar.currentTime = 0
@@ -103,9 +97,12 @@ function game_over() {
             mago2.vida = 5
             mago.pontos = 0
             mago2.pontos = 0
+
             jogar = true
             vitoria = false
             fase = 1
+
+            fundo.src = './img/img_Fundo.png'
 
             musica.currentTime = 0
             musica.play()
@@ -121,12 +118,18 @@ function ver_fase() {
 
     if ((mago.pontos > 20 || mago2.pontos > 20) && fase === 1) {
         fase = 2
+
+        fundo.src = './img/img_Fundo2.png'
+
         fantasma1.vel = 4
         fantasma2.vel = 4
         fantasma3.vel = 4
     }
     else if ((mago.pontos > 40 || mago2.pontos > 40) && fase === 2) {
         fase = 3
+
+        fundo.src = './img/img_Fundo3.png'
+
         fantasma1.vel = 6
         fantasma2.vel = 6
         fantasma3.vel = 6
@@ -221,6 +224,8 @@ function pontuacao() {
 function desenha() {
     if (jogar) {
 
+        des.drawImage(fundo, 0, 0, 1200, 700)
+
         des.fillStyle = 'rgba(0,0,0,0.4)'
         des.fillRect(0, 0, 1200, 60)
 
@@ -275,8 +280,6 @@ function desenha() {
         }
     }
 }
-
-
 
 function atualiza() {
     if (jogar) {

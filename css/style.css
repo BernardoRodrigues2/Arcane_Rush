@@ -17,8 +17,8 @@ body {
 
 .voltar {
     position: fixed;
-    top: 800px;
-    left: 1680px;
+    bottom: 20px;
+    right: 20px;
 
     width: 120px;
     height: 60px;
@@ -45,21 +45,25 @@ body {
 
 .titulo {
     position: absolute;
-    top: 35px; /* ajusta a altura */
+    top: 35px;
+    /* ajusta a altura */
     left: 50%;
     transform: translateX(-50%);
-    
-    width: 500px; /* ajuste conforme o tamanho da imagem */
-    
-    z-index: 1001; /* garante que fique acima do canvas */
-    pointer-events: none; /* opcional: não interfere em cliques */
+
+    width: 500px;
+    /* ajuste conforme o tamanho da imagem */
+
+    z-index: 1001;
+    /* garante que fique acima do canvas */
+    pointer-events: none;
+    /* opcional: não interfere em cliques */
 }
 
 canvas {
     position: absolute;
-    border-radius: 20px;
+    border-radius: 10px;
     top: 50%;
-    left: 51%;
-    transform: translate(-50%, -50%);
-    background-image: url(../img/Img_Fundo.png);
+    left: 50%;
+    ;
+    transform: translate(-49%, -50%);
 }

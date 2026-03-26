@@ -1,5 +1,9 @@
 let des = document.getElementById('des').getContext('2d')
 
+// FUNDO
+let fundo = new Image()
+fundo.src = './img/img_Fundo.png'
+
 let fantasma1 = new Fantasmas(1300, 325, 64, 64, './img/fantasma.png')
 let fantasma2 = new Fantasmas(1500, 125, 64, 64, './img/fantasma.png')
 let fantasma3 = new Fantasmas(1700, 400, 64, 64, './img/fantasma.png')
@@ -37,6 +41,7 @@ let jogar = true
 let fase = 1
 let vitoria = false
 
+
 //Movimentação Player 1
 document.addEventListener('keydown', (e) => {
 
@@ -66,6 +71,7 @@ document.addEventListener('keyup', (e) => {
     }
 })
 
+
 function game_over() {
     if (mago.vida <= 0) {
         jogar = false
@@ -83,6 +89,8 @@ function game_over() {
             vitoria = false
             fase = 1
 
+            fundo.src = './img/img_Fundo.png'
+
             musica.currentTime = 0
             musica.play()
 
@@ -93,32 +101,46 @@ function game_over() {
     })
 }
 
+
 function ver_fase() { 
+
     if (mago.pontos > 20 && fase === 1) {
         fase = 2
+        fundo.src = './img/img_Fundo2.png'
+        
+
         fantasma1.vel = 4
         fantasma2.vel = 4
         fantasma3.vel = 4
     } 
     else if (mago.pontos > 40 && fase === 2) {
         fase = 3
+        fundo.src = './img/img_Fundo3.png'
+       
+
         fantasma1.vel = 6
         fantasma2.vel = 6
         fantasma3.vel = 6
     } 
     else if (mago.pontos > 100 && fase === 3) {
         fase = 4
+         fundo.src = './img/img_Fundo4.png'
+        
+
         fantasma1.vel = 8
         fantasma2.vel = 8
         fantasma3.vel = 8
     } 
     else if (mago.pontos > 150 && fase === 4) {
         fase = 5
+        fundo.src = './img/img_Fundo5.png'
+
         fantasma1.vel = 10
         fantasma2.vel = 10
         fantasma3.vel = 10
     }
 }
+
 
 function colisao() {
     if (mago.colid(fantasma1)) {
@@ -139,6 +161,7 @@ function colisao() {
         mago.vida--
     }
 }
+
 
 function pontuacao() {
     if (mago.colid(grimorio1)) {
@@ -167,8 +190,11 @@ function pontuacao() {
     }
 }
 
+
 function desenha() {
     if (jogar) {
+
+        des.drawImage(fundo, 0, 0, 1200, 700)
 
         des.fillStyle = 'rgba(0,0,0,0.4)'
         des.fillRect(0,0,1200,60)
@@ -206,6 +232,7 @@ function desenha() {
     }
 }
 
+
 function atualiza() {
     if (jogar) {
         mago.mov_mage()
@@ -225,6 +252,7 @@ function atualiza() {
         game_over()
     }
 }
+
 
 function main() {
     des.clearRect(0,0, 1200, 700)

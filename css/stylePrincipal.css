@@ -65,6 +65,21 @@ body {
         0 0 15px rgba(0, 200, 255, 0.8);
 }
 
+.cargo {
+    font-weight: bold;
+    color: #ffffff;
+    font-size: 18px;
+}
+
+.id_link {
+    color: white;
+    text-decoration: none;
+}
+
+.id_link:hover {
+    color: #6f85ff;
+}
+
 .manual {
     display: none;
     margin-top: 10px;
