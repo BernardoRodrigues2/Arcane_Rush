@@ -69,7 +69,7 @@ Professor Carlos Roberto da Silva Filho
 
 ## 🔗 Link de Produção
 
-arcane-rush-nu.vercel.app
+https://arcane-rush-nu.vercel.app/index.html
 
 ---
 
