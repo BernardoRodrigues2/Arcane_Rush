@@ -72,17 +72,8 @@ Cada fase apresenta um fundo diferente.
 RN03 — Vitória  
 O jogador vence ao atingir 300 pontos com pelo menos 1 vida.
 
-RN04 — Derrota  
-O jogador perde quando suas vidas chegam a zero.
-
-RN05 — Sistema de Pontuação  
-O jogador ganha pontos ao coletar grimórios.
-
-RN06 — Sistema de Vidas  
-O jogador inicia com 5 vidas e perde ao colidir com inimigos.
-
-RN07 — Progressão Automática  
-As fases mudam automaticamente conforme a pontuação.
+RN04 — Manual De Instruções
+Tela Explicativa de como o Usuario joga o jogo.
 
 ---
 
@@ -95,16 +86,80 @@ RF02 — Sistema de Vidas
 O jogador perde vidas ao colidir com fantasmas.
 
 RF03 — Pontuação  
-O jogo possui sistema de pontuação.
+O jogo possui sistema de pontuação quando o jogador coleta Grimórios.
 
 RF04 — Coletáveis  
 Grimórios aumentam a pontuação.
 
 RF05 — Progressão de Fases  
-O jogo possui múltiplas fases com dificuldade crescente.
+O jogo possui múltiplas fases com dificuldade crescente conforme o jogador ganha pontos.
 
-RF06 — Telas  
-O jogo possui tela de vitória e game over.
+RF06 — Tela "Sobre" 
+O jogo possui uma tela "sobre" falando sobre o desenvolvedor e sobre o Product Owner.
+
+---
+
+# 📋 Requisitos Não Funcionais
+
+RNF01 — Tecnologia  
+O sistema foi desenvolvido utilizando JavaScript (ES6+), HTML5 Canvas e CSS3, garantindo compatibilidade com navegadores modernos sem necessidade de transpilação adicional.
+
+RNF02 — Portabilidade  
+O jogo roda diretamente no navegador utilizando HTML5 Canvas, não sendo necessária instalação de dependências externas.
+
+RNF03 — Usabilidade  
+A interface foi projetada para execução em computadores com resolução 1920 x 1080 px, garantindo que todos os elementos do jogo permaneçam visíveis em tela sem cortes.
+
+RNF04 — Desempenho / Comportamento Temporal  
+O jogo mantém atualização contínua da tela para garantir fluidez durante a execução.
+
+---
+# 📊 Modelagem e Documentação
+
+## Diagrama de Casos de Uso
+Representa as interações do jogador com o sistema.
+
+Ator:
+- Jogador
+
+Casos de uso:
+- Iniciar jogo  
+- Mover personagem  
+- Coletar grimório  
+- Desviar de inimigos  
+- Avançar fase  
+- Tela de vitória  
+- Tela de derrota  
+
+---
+
+## Diagrama de Classes
+O sistema possui uma classe base e classes derivadas.
+
+Classe base:
+- Obj
+
+Classes:
+- Mage (Jogador)
+- Fantasma (Inimigo)
+- Grimorio (Coletável)
+
+Herança:
+- Mage herda de Obj  
+- Fantasma herda de Obj  
+- Grimorio herda de Obj  
+
+---
+
+## Diagrama de Sequência
+Evento de colisão com inimigo:
+
+Jogador move personagem  
+→ Sistema verifica colisão  
+→ Colisão com fantasma  
+→ Vida do jogador diminui  
+→ Sistema verifica vidas  
+→ Se vida = 0 → game over
 
 ---
 
