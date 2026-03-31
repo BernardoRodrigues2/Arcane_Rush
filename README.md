@@ -73,6 +73,7 @@ RN03 — Vitória
 O jogador vence ao atingir 300 pontos com pelo menos 1 vida.
 
 RN04 — Manual De Instruções
+
 Tela Explicativa de como o Usuario joga o jogo.
 
 ---
@@ -94,7 +95,8 @@ Grimórios aumentam a pontuação.
 RF05 — Progressão de Fases  
 O jogo possui múltiplas fases com dificuldade crescente conforme o jogador ganha pontos.
 
-RF06 — Tela "Sobre" 
+RF06 — Tela "Sobre"
+
 O jogo possui uma tela "sobre" falando sobre o desenvolvedor e sobre o Product Owner.
 
 ---
